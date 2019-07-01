@@ -1,4 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://vasu1234:vasu1234@cluster0-nqqn7.mongodb.net/test?retryWrites=true&w=majority",
+    "mongoURI": "mongodb://user:password123@ds345597.mlab.com:45597/heroku_wv6sl6gm",
     "jwtToken": "mysecrettoken"
 }
