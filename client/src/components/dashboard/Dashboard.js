@@ -42,14 +42,14 @@ const Dashboard = ({auth, updateMoney, setAlert, loadQuote}) => {
       await loadQuote(String(buyStockName));
       setFormData({...formData, buyStockName: "", buyQuantity: 0})
       if(!auth.price){
-        setAlert("Error fetching quote, check the stock details!", 'danger', 50000);
+        setAlert("Error fetching quote, check the stock details!", 'danger', 5000);
       }
       else if(auth.user.balance <= 0 || (auth.price * buyQuantity) < auth.user.balance){
-        setAlert("You do not have enough balance. Please add some money!", 'danger', 50000);
+        setAlert("You do not have enough balance. Please add some money!", 'danger', 5000);
       }
       else{
         const quote = auth.price * buyQuantity;
-        setAlert("$" + quote +"will be deducted", 'success', 50000);
+        setAlert("$" + quote +"will be deducted", 'success', 5000);
         setFormData({...formData, buyStockName: "", buyQuantity: 0});
         addStock(auth.user.email, buyStockName, buyQuantity, quote);
        // updateMoney(auth.user.email, -quote);
@@ -63,12 +63,12 @@ const Dashboard = ({auth, updateMoney, setAlert, loadQuote}) => {
     await loadQuote(String(sellStockName));
     setFormData({...formData, sellStockName: "", buyQuantity: 0})
     if(!auth.price){
-      setAlert("Error fetching quote, check the stock details!", 'danger', 50000);
+      setAlert("Error fetching quote, check the stock details!", 'danger', 5000);
     }
 
     else{
       const quote = auth.price * sellQuantity;
-      setAlert("$" + quote +"will be added", 'success', 50000);
+      setAlert("$" + quote +"will be added", 'success', 5000);
       setFormData({...formData, sellStockName: "", sellQuantity: 0});
       addStock(auth.user.email, sellStockName, sellQuantity, quote);
      // updateMoney(auth.user.email, -quote);
